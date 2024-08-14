@@ -59,13 +59,7 @@ def get_data():
     connect.close()
     return cities
 
-# Replace with your actual user authentication logic
-def check_user(email, password):
-    # Implement your user authentication logic here
-    # For example, check against a database
-    if email == "user@example.com" and password == "password":
-        return True
-    return False
+
 
 @app.get("/")
 async def login(request: Request):
