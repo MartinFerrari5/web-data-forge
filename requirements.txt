@@ -6,5 +6,5 @@ nltk
 textblob
 pandas
 joblib
-sklearn
+scikit-learn
 collections
