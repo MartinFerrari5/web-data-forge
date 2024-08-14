@@ -7,3 +7,4 @@ textblob
 pandas
 joblib
 scikit-learn
+uvicorn
