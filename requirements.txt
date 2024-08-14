@@ -7,4 +7,3 @@ textblob
 pandas
 joblib
 scikit-learn
-collections
