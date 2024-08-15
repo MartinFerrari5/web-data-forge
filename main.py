@@ -11,11 +11,11 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 
 # KEYS
-HOST = os.environ.get("HOST")
-USER = os.environ.get("USER")
-PASSWORD = os.environ.get("PASSWORD")
-DATABASE = os.environ.get("DATABASE")
-PORT = os.environ.get("PORT")
+# HOST = os.environ.get("HOST")
+# USER = os.environ.get("USER")
+# PASSWORD = os.environ.get("PASSWORD")
+# DATABASE = os.environ.get("DATABASE")
+# PORT = os.environ.get("PORT")
 
 
 app = FastAPI()
@@ -28,47 +28,45 @@ class User(BaseModel):
 
 
 # # # Iniciar la Conexion
-def star_connection():
-    try:
-        connect = pymysql.connect(
-            host=HOST,
-            user= USER,
-            password=PASSWORD,
-            database=DATABASE,
-            port= PORT
-        )
-        query = """CREATE TABLE IF NOT EXISTS cities(
-            idcity INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-            city VARCHAR(50))"""
-        cursor = connect.cursor()
-        cursor.execute(query)
-        connect.commit()
-        print("SUCCESS...")
-        return connect
-    except Exception:
-        print("Not Available")
+# def star_connection():
+#     try:
+#         connect = pymysql.connect(
+#             host=HOST,
+#             user= USER,
+#             password=PASSWORD,
+#             database=DATABASE,
+#             port= PORT
+#         )
+#         query = """CREATE TABLE IF NOT EXISTS cities(
+#             idcity INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+#             city VARCHAR(50))"""
+#         cursor = connect.cursor()
+#         cursor.execute(query)
+#         connect.commit()
+#         print("SUCCESS...")
+#         return connect
+#     except Exception:
+#         print("Not Available")
 
 
 def get_city(texto):
     city = rec_system(texto)
-    connect = star_connection()
-    query = f"INSERT INTO cities (city) VALUES ('{city}')"
-    cursor = connect.cursor()
-    cursor.execute(query)
-    connect.commit()
-    connect.close()
+    # connect = star_connection()
+    # query = f"INSERT INTO cities (city) VALUES ('{city}')"
+    # cursor = connect.cursor()
+    # cursor.execute(query)
+    # connect.commit()
+    # connect.close()
     return city
 
-def get_data():
-    connect = star_connection()
-    cursor = connect.cursor()
-    cursor.execute("SELECT CITY ,COUNT(*) AS cant FROM cities GROUP BY city ORDER BY cant DESC")
-    cities = cursor.fetchall()
-    connect.close()
-    return cities
+# def get_data():
+#     # connect = star_connection()
+#     cursor = connect.cursor()
+#     cursor.execute("SELECT CITY ,COUNT(*) AS cant FROM cities GROUP BY city ORDER BY cant DESC")
+#     cities = cursor.fetchall()
+#     connect.close()
+#     return cities
 
-def greet():
-    return "hola"
 
 
 @app.get("/")
@@ -90,11 +88,11 @@ async def destiny( request : Request,descripcion:str=Form(...)):
 
 
 
-@app.post("/admin")
-async def login_post(request:Request,email:str= Form(...), password: str=Form(...)):
-    if(email=="admin@admin.com" and password=="password"):
-        cities= get_data()
-        return templates.TemplateResponse("stats.html",{"request":request, "cities":cities})
-    else:
-        return templates.TemplateResponse("admin.html",{"request":request})
+# @app.post("/admin")
+# async def login_post(request:Request,email:str= Form(...), password: str=Form(...)):
+#     if(email=="admin@admin.com" and password=="password"):
+#         cities= get_data()
+#         return templates.TemplateResponse("stats.html",{"request":request, "cities":cities})
+#     else:
+#         return templates.TemplateResponse("admin.html",{"request":request})
     
