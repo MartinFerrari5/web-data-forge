@@ -10,3 +10,4 @@ scikit-learn
 uvicorn
 pyarrow
 Jinja2
+python-multipart
