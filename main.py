@@ -15,6 +15,7 @@ HOST = os.environ.get("HOST")
 USER = os.environ.get("USER")
 PASSWORD = os.environ.get("PASSWORD")
 DATABASE = os.environ.get("DATABASE")
+PORT = os.environ.get("PORT")
 
 
 app = FastAPI()
@@ -33,8 +34,15 @@ def star_connection():
             host=HOST,
             user= USER,
             password=PASSWORD,
-            database=DATABASE
+            database=DATABASE,
+            port= PORT
         )
+        query = """CREATE TABLE IF NOT EXISTS cities(
+            idcity INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+            city VARCHAR(50))"""
+        cursor = connect.cursor()
+        cursor.execute(query)
+        connect.commit()
         print("SUCCESS...")
         return connect
     except Exception:
