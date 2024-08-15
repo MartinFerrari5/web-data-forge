@@ -1,9 +1,8 @@
 fastapi
 pydantic
-# pymysql
+
 python-dotenv 
-# nltk
-# textblob
+
 pandas
 joblib
 scikit-learn

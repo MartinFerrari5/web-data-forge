@@ -4,11 +4,10 @@ from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from mlmodel import rec_system
-import pymysql
-import os
-from dotenv import load_dotenv, find_dotenv
+# import os
+# from dotenv import load_dotenv, find_dotenv
 
-load_dotenv(find_dotenv())
+# load_dotenv(find_dotenv())
 
 # KEYS
 # HOST = os.environ.get("HOST")
