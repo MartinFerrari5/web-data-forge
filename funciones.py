@@ -100,7 +100,7 @@ def recomendar_ciudad(df_sin_filtrar):
     # 1.0: Filtrar ciudades con más de 100 negocios únicos
     unicos = df_sin_filtrar.groupby('city')['name'].nunique().reset_index()
     unicos.columns = ['ciudad', 'unicos']
-    ciudades_filtradas = unicos[unicos['unicos'] > 100]['ciudad']
+    ciudades_filtradas = unicos[unicos['unicos'] > 20]['ciudad']
     df_filtrado = df_sin_filtrar[df_sin_filtrar['city'].isin(ciudades_filtradas)]
     # 1.1: Filtrar por la ciudad con el mayor puntaje de similitud promedio
     promedio_por_ciudad = df_filtrado.groupby('city')['similarity_score'].mean().reset_index()

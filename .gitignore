@@ -5,3 +5,4 @@ artefact.pkl
 funciones.py
 mlmodel.py
 modelo_full.pkl
+df_final.parquet

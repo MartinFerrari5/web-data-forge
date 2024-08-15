@@ -82,8 +82,11 @@ async def admin(request: Request):
 @app.post("/destinos")
 async def destiny( request : Request,descripcion:str=Form(...)):
     city = get_city(descripcion)
-    print(city)
-    return templates.TemplateResponse("destinos.html",{"request":request,"city":city})
+    if(city!="error"):
+        return templates.TemplateResponse("destinos.html",{"request":request,"city":city})
+    else:
+        return templates.TemplateResponse("destinos.html",{"request":request})
+
 
 
 

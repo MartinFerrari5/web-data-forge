@@ -34,13 +34,22 @@
           </button>
           
         </form>
-        {% if city %}
+        {% if city  %}
           
         <div class="notification">
             <div class="notiglow"></div>
             <div class="notiborderglow"></div>
             <a class="notititle" href="https://www.booking.com/searchresults.en.html?ss={{city}}%2C+United+States" target="_BLANK">{{city}}</a>
             <div class="notibody">Click para empezar a elegir tu hospedaje</div>
+        </div>
+
+        {% elif error %}
+          
+        <div class="notification">
+            <div class="notiglow"></div>
+            <div class="notiborderglow"></div>
+            <a class="notititle" href="/destinos" target="_BLANK">{{Error}}</a>
+            <div class="notibody">Click aqui e intentalo de nuevo</div>
         </div>
         {% endif %}
       
