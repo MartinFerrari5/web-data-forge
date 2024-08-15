@@ -12,7 +12,7 @@
     <header class="header">
         <h1> <a href="/"><b> DATA FORGE </b> </a></h1>
         <nav>
-            <a class="nav_items" href="/destinos">Destinos</a>
+            <a class="nav_items" href="/destinos">Find your place</a>
             <!-- <a class="nav_items" href="/contacto">Contacto</a> -->
             <!-- <a class="nav_items" href="/informacion">Informacion</a> -->
             <!-- <a class="nav_items" href="/admin">Admin</a> -->
@@ -39,8 +39,9 @@
         <div class="notification">
             <div class="notiglow"></div>
             <div class="notiborderglow"></div>
-            <a class="notititle" href="https://www.booking.com/searchresults.en.html?ss={{city}}%2C+United+States" target="_BLANK">{{city}}</a>
-            <div class="notibody">Click para empezar a elegir tu hospedaje</div>
+            <a class="notititle" href="https://www.booking.com/searchresults.en.html?ss={{city}}%2C+{{state}}%2c+United+States" target="_BLANK">{{city}}</a>
+            <div class="notibody">Click here to start booking...</div>
+            <p>{{state}}</p>
         </div>
 
         {% elif error %}
@@ -49,7 +50,7 @@
             <div class="notiglow"></div>
             <div class="notiborderglow"></div>
             <a class="notititle" href="/destinos" target="_BLANK">{{Error}}</a>
-            <div class="notibody">Click aqui e intentalo de nuevo</div>
+            <div class="notibody">Try Again</div>
         </div>
         {% endif %}
       
@@ -63,7 +64,7 @@
         let form = document.querySelector(".form-control")
         let fulls = document.querySelector(".fulls")
         if(card){
-            card.addEventListener("click",()=> window.location.href = "https://www.booking.com/searchresults.en.html?ss={{city}}%2C+United+States");
+            card.addEventListener("click",()=> window.location.href = "https://www.booking.com/searchresults.en.html?ss={{city}}%2C+{{state}}%2c+United+States");
         }
         
 
